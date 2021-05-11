@@ -83,18 +83,18 @@ To generate Figure S2A and S2B:
 
 S2A components:
 
-`./scripts/rsqparse.py -dataroot ../data/validation_results_parsed/binding_runs/ -outdir ./Supplement/ -system bind`
+`./scripts/rsqparse.py -dataroot ../data/validation_results_parsed/binding_runs/ -outdir ./Supplement/ -system bind -fs 24`
 
 S2B components:
 
-`./scripts/rsqparse.py -dataroot ../data/validation_results_parsed/folding_runs/ -outdir ./Supplement/ -system fold`
+`./scripts/rsqparse.py -dataroot ../data/validation_results_parsed/folding_runs/ -outdir ./Supplement/ -system fold -fs 24`
 
 Combining them together:
 
-`convert -density 600 ./Supplement/leave_10per_out_bind.pdf ./Supplementleave_10per_out_bind_errb.pdf -append +repage -quality 600 ./Supplement/S2A.pdf`
-`convert -density 600 ./Supplement/leave_10per_out_fold.pdf ./Supplement/leave_10per_out_fold.pdf -append +repage -quality 600 ./Supplement/S2B.pdf`
+`convert -density 600 ./Supplement/leave_10per_out_bind.pdf ./Supplement/leave_10per_out_bind_errb.pdf -append +repage -quality 600 ./Supplement/S2A.pdf`
+`convert -density 600 ./Supplement/leave_10per_out_fold.pdf ./Supplement/leave_10per_out_fold_errb.pdf -append +repage -quality 600 ./Supplement/S2B.pdf`
 
-`convert -density 600 ./Supplement/S2A.pdf ./Supplement/S2B.pdf +append +repage -quality 600 ./Supplement S2.pdf`
+`convert -density 600 ./Supplement/S2A.pdf ./Supplement/S2B.pdf +append +repage -quality 600 ./Supplement/S2.pdf`
 
 
 To generate Figure S3:

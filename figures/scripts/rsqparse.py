@@ -5,6 +5,7 @@ import sys
 import argparse
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import rc,rcParams
 
 #-# functions #-#
 
@@ -62,11 +63,12 @@ def rankconvert(instance_dict):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-dataroot', help    =   "Data root direcotry")
-    parser.add_argument('-outdir', help =   "output directory, defaults to current", default="./")
+    parser.add_argument('-dataroot', help="Data root direcotry")
+    parser.add_argument('-outdir', help="output directory, defaults to current", default="./")
     parser.add_argument('-numruns', type=int, help="number of runs to process, defaults to 100", default=100)
     parser.add_argument('-system', help="System, either bind or fold", default="bind")
     parser.add_argument('-summary',help="Will write summary if specified", action="store_true")
+    parser.add_argument('-fs', help="Font size", default=28, type=int)
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(1)
@@ -116,6 +118,11 @@ if __name__ == '__main__':
                 rankavg_dict[feature].append(rankorderdict["{:02d}".format(i)][feature])
             except:
                 pass
+    rcParams['xtick.labelsize'] = args.fs -4
+    rcParams['ytick.labelsize'] = args.fs -4
+    rcParams['axes.labelsize'] = args.fs
+    rcParams['legend.fontsize'] = args.fs-4
+
     f = plt.figure(figsize=(8,8))
     for key in allkeys:
         plt.plot([i for i in range(0,args.numruns)], value_dict[key], label="{:s}: {:d}%, dR^2 avg: {:.3f}".format(key, allkeys_total[key], np.average([elem for elem in value_dict[key] if elem != 0])))
