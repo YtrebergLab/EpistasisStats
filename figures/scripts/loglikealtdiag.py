@@ -43,6 +43,7 @@ def bindplotgenAltNull(npoints, fs, out):
     rcParams['legend.fontsize'] = fs
     rcParams['axes.titlesize'] = fs
     rcParams['axes.labelcolor'] = 'black'
+    rcParams['font.family'] = 'serif'
     rc('text', usetex=True)
     fig, axes = plt.subplots(2,2, sharex=True, figsize=(7.5,7.5))
     xset = np.linspace(*bindsepdata, npoints)

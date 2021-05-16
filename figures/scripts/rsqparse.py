@@ -118,26 +118,30 @@ if __name__ == '__main__':
                 rankavg_dict[feature].append(rankorderdict["{:02d}".format(i)][feature])
             except:
                 pass
-    rcParams['xtick.labelsize'] = args.fs -4
-    rcParams['ytick.labelsize'] = args.fs -4
+    rcParams['xtick.labelsize'] = args.fs
+    rcParams['ytick.labelsize'] = args.fs
     rcParams['axes.labelsize'] = args.fs
-    rcParams['legend.fontsize'] = args.fs-4
+    rcParams['legend.fontsize'] = args.fs
+    rcParams['font.family'] = 'serif'
 
     f = plt.figure(figsize=(8,8))
     for key in allkeys:
         plt.plot([i for i in range(0,args.numruns)], value_dict[key], label="{:s}: {:d}%, dR^2 avg: {:.3f}".format(key, allkeys_total[key], np.average([elem for elem in value_dict[key] if elem != 0])))
-    lgd = plt.legend(bbox_to_anchor=(1.01,1), loc='upper left')
+    lgd = plt.legend(bbox_to_anchor=(-0.18,-0.92), loc='lower left')
     plt.xlabel("run")
     plt.ylabel(r"$\Delta R^{2}$")
-    plt.title("Binding", y=0.95)
+    if args.system == "bind":
+        plt.title("Binding (SKEMPIv2.0)", y=0.94, fontsize=args.fs)
+    elif args.system == "fold":
+        plt.title("Folding (ProTherm4)", y=0.94, fontsize=args.fs)
     plt.savefig(args.outdir + 'leave_10per_out_{:s}.pdf'.format(args.system), format='pdf', dpi=300, bbox_extra_artists=(lgd,), bbox_inches="tight")
 
     plt.clf()
     f = plt.figure(figsize=(8,8))
     #plot errorbar plot
     for i in range(len(allkeys)):
-        plt.errorbar(i, np.average(value_dict[allkeys[i]]), xerr=0, yerr=np.std(value_dict[allkeys[i]], ddof=1), marker='.', capsize=4)
-    plt.xticks([i for i in range(len(allkeys))], [allkeys[i] for i in range(len(allkeys))], rotation=45)
+        plt.errorbar(i, np.average(value_dict[allkeys[i]]), xerr=0, yerr=np.std(value_dict[allkeys[i]], ddof=1), marker='o', capsize=7, elinewidth=5, capthick=3)
+    plt.xticks([i for i in range(len(allkeys))], [allkeys[i] for i in range(len(allkeys))], rotation=75)
     plt.ylabel(r"$\Delta R^{2}$")
     plt.xlabel("Feature")
     plt.savefig(args.outdir + 'leave_10per_out_{:s}_errb.pdf'.format(args.system), format='pdf', dpi=300, bbox_inches="tight")

@@ -35,6 +35,7 @@ def plotter1(fs, outfile):
     rcParams['ytick.labelsize'] = fs
     rcParams['axes.labelsize'] = fs
     rcParams['legend.fontsize'] = fs
+    rcParams['font.family'] = 'serif'
     rc('text', usetex=True)
     bind_neg_y, bind_neg_x, bind_pos_y, bind_pos_x, bind_y, bind_x = pairPropEpSplitter(bindDevData, bindSepData)
     fold_neg_y, fold_neg_x, fold_pos_y, fold_pos_x, fold_y, fold_x = pairPropEpSplitter(foldDevData, foldSepData)
@@ -53,8 +54,8 @@ def plotter1(fs, outfile):
     ax1.set_yticks([-6, -4, -2, 0,2, 4, 6])
     ax2.set_yticks([-4, -2, 0, 2, 4])
     ax2.set_ylabel(r'$\epsilon$ (kcal/mol)')
-    ax1.annotate('Binding (SKEMPIv2.0) [572]', xy=(20.8,4.8), fontsize=fs-3)
-    ax2.annotate('Folding (ProTherm4) [204]', xy=(22.1,ymax-1.1), fontsize=fs-3)
+    ax1.annotate('Binding (SKEMPIv2.0) [572]', xy=(20.4,4.8), fontsize=fs-3)
+    ax2.annotate('Folding (ProTherm4) [204]', xy=(22,ymax-1.1), fontsize=fs-3)
     fig.tight_layout()
     fig.savefig(outfile + '.pdf')
 

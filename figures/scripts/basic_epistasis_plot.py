@@ -31,7 +31,7 @@ def plotter1(fs, out, ptype):
     rcParams['ytick.labelsize'] = fs
     rcParams['axes.labelsize'] = fs
     rcParams['legend.fontsize'] = fs
-    rc('font', **{'family' : 'serif', 'serif' : ['Times']})
+    rcParams['font.family'] = 'serif'
     rc('text', usetex=True)
     plt.figure(figsize=(8,8))
     plt.scatter(null_ep_x, null_ep_y, edgecolor='k', facecolor='None', label = 'No epistasis')

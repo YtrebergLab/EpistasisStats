@@ -26,7 +26,7 @@ To generate Figure 1B:
 
 To combined and generate Figure 1:
 
-`convert -density 600 ./Fig1/Fig1A ./Fig1/Fig1B +append +repage -quality 600 ./Fig1/Fig1.pdf
+`convert -density 600 ./Fig1/Fig1A.pdf ./Fig1/Fig1B.pdf +append +repage -quality 600 ./Fig1/Fig1.pdf`
 
 ### Figure 2
 
@@ -56,11 +56,11 @@ To combine to make Figure 3:
 
 To generate Figure 4A:
 
-`./scripts/feature_cat_compare.py --feature charge_ab2 --system binding --simplename "Charge" --output ./Fig4/Fig4A  --fs 28 --figsize "8x8" --data ../data/processed/skempi_bind_processed.txt --titleside "right" --titleshift 0.05`
+`./scripts/feature_cat_compare.py --feature charge_ab2 --system binding --simplename "Charge" --output ./Fig4/Fig4A  --fs 28 --figsize "8x8" --data ../data/processed/skempi_bind_processed.txt --titleside "right" --titleshift 0.035`
 
 To generate Figure 4B:
 
-`./scripts/feature_cat_compare.py --feature cplx_type --system binding --simplename "Complex Type" --output ./Fig4/test --rot 16 --fs 28 --figsize "8.6x8.82" --data ../data/processed/skempi_bind_processed.txt --titleside "right" --stripnum --titleshift 0.09`
+`./scripts/feature_cat_compare.py --feature cplx_type --system binding --simplename "Complex Type" --output ./Fig4/Fig4B --rot 16 --fs 28 --figsize "8.6x8.82" --data ../data/processed/skempi_bind_processed.txt --titleside "right" --stripnum --titleshift 0.065`
 
 To combine to make Figure 4:
 
@@ -102,11 +102,11 @@ To generate Figure S3:
 
 S3A
 
-`./scripts/feature_cat_compare.py --feature intside_int --system binding --simplename "Interaction Side" --output ./Supplement/S3A  --fs 28 --figsize "8x8" --data ../data/processed/skempi_bind_processed.txt --titleside "left" --titleshift -0.05`
+`./scripts/feature_cat_compare.py --feature intside_int --system binding --simplename "Interaction Side" --output ./Supplement/S3A  --fs 28 --figsize "8x8" --data ../data/processed/skempi_bind_processed.txt --titleside "left" --titleshift -0.035`
 
 S3B
 
-`./scripts/feature_cat_compare.py --feature ss_ab3 --system binding --simplename "Secondary Structure" --output ./Supplement/S3B  --fs 28 --figsize "8x8" --data ../data/processed/skempi_bind_processed.txt --titleside "left" --titleshift -0.05`
+`./scripts/feature_cat_compare.py --feature ss_ab3 --system binding --simplename "Secondary Structure" --output ./Supplement/S3B  --fs 28 --figsize "8x8" --data ../data/processed/skempi_bind_processed.txt --titleside "left" --titleshift -0.035`
 
 S3C
 
@@ -131,4 +131,4 @@ S3:
 `convert -density 600 ./Supplement/S3top.pdf ./Supplement/S3bottom.pdf -append -quality 600 +repage ./Supplement/S3.pdf`
 
 
-Note: A,B,C,D,...etc designations added via postprocessing with inkscape. Individual components cleared before upload.
+Note: A,B,C,D,...etc designations added via postprocessing with inkscape. 

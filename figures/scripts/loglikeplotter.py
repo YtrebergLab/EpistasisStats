@@ -15,6 +15,7 @@ def plotter1(sim,lm, fs, out, ptype):
     rcParams['ytick.labelsize'] = fs
     rcParams['axes.labelsize'] = fs
     rcParams['legend.fontsize'] = fs
+    rcParams['font.family'] = 'serif'
     rc('text', usetex=True)
     plt.figure(figsize=(7.5,7.5))
     ultamin = min([loglam, min(simulated)])
@@ -24,10 +25,10 @@ def plotter1(sim,lm, fs, out, ptype):
     plt.xlim(ultamin-1,0)
     plt.arrow(lm, 0.08*max(ht[0]), 0, -0.03*max(ht[0]), head_width=0.4, width=0.1, color='k', head_length=0.03*max(ht[0]))
     if ptype == "bind":
-        plt.text(lm-0.36, 0.09*max(ht[0]), 'EXP', fontsize=fs)
-        plt.text(ultamin-0.8, max(ht[0]), 'Separation Distance (Binding)', fontsize=fs-2)
+        plt.text(lm-0.4, 0.09*max(ht[0]), 'EXP', fontsize=fs)
+        plt.text(ultamin-0.8, max(ht[0]), 'Binding (SKEMPIv2.0)', fontsize=fs-2)
     elif ptype=="fold":
-        plt.text(lm-0.38, 0.09*max(ht[0]), 'EXP', fontsize=fs)
+        plt.text(lm-0.42, 0.09*max(ht[0]), 'EXP', fontsize=fs)
         plt.text(ultamin-0.8, max(ht[0]), 'Folding (ProTherm4)', fontsize=fs-2)
     plt.tight_layout()
     plt.savefig(out+'.pdf', format='pdf')

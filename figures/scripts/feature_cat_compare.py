@@ -68,7 +68,7 @@ def featureErrorBarPlotter(data, feature, system, fs, feature_common_name, outpu
     rcParams['ytick.labelsize'] =fs
     rcParams['axes.labelsize'] =fs
     rcParams['legend.fontsize'] =fs
-    rcParams['text.usetex'] = True
+    rcParams['font.family'] = 'serif'
     plt.rc('text', usetex=True)
     featDict = FeatureHandler(data, feature)
     numFeats = len(featDict.keys())
@@ -138,6 +138,7 @@ def epistasis_presence_bar(data, cutoff_list, fs, systemlabel, output):
     rcParams['ytick.labelsize'] = fs
     rcParams['axes.labelsize'] = fs
     rcParams['legend.fontsize'] = fs
+    rcParams['font.family'] = 'serif'
     rc('text', usetex=True)
     width = 2/ len(cutoff_list)
     fig, (ax,ax2) = plt.subplots(2,1,sharex=True,figsize=(15,15))
@@ -163,7 +164,7 @@ def epistasis_presence_bar(data, cutoff_list, fs, systemlabel, output):
     if systemlabel == "binding":
         ax.annotate("Binding (SKEMPIv2.0)[572]", xy=(int(len(cutoff_list)/2)-2, 0.91), fontsize=fs)
     elif systemlabel == "folding":
-        ax.annotate("Folding (ProTherm4)[204]", xy=(int(len(cutoff_list)/2)-1.8, 0.91), fontsize=fs)
+        ax.annotate("Folding (ProTherm4)[204]", xy=(int(len(cutoff_list)/2)-1.75, 0.91), fontsize=fs)
     else:
         ax.annotate(systemlabel, xy=(int(len(cutoff_list)/2)-3.1, 0.905), fontsize=fs)
     ax.set_ylim([0,1])
